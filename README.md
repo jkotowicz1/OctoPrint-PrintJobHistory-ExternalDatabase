@@ -1,3 +1,9 @@
+This fork adds the ablity to use an external database instead of a local SQLite3 database. PostgreSQL has been added first but MySQL/MariaDB is possible also using either database driver MySQLdb or pymysql.
+
+In order to use this plugin with PostgreSQL, the database driver psycopg2 must be installed in the Python environment you are running OctoPrint in. ex:
+
+```../venv37/pip install psycopg2```
+
 # OctoPrint-PrintJobHistory
 
 [![Version](https://img.shields.io/badge/dynamic/json.svg?color=brightgreen&label=version&url=https://api.github.com/repos/OllisGit/OctoPrint-PrintJobHistory/releases&query=$[0].name)]()

@@ -67,7 +67,7 @@ class PrintJobHistoryPlugin(
 		# self.myInfoLogger("Start initializing")
 		# DATABASE
 		sqlLoggingEnabled = self._settings.get_boolean([SettingsKeys.SETTINGS_KEY_SQL_LOGGING_ENABLED])
-		self._databaseManager = DatabaseManager(self._logger, sqlLoggingEnabled)
+		self._databaseManager = DatabaseManager(self._logger, sqlLoggingEnabled, self._settings.get(['externalDatabase']))
 		self._databaseManager.initDatabase(pluginDataBaseFolder, self._sendErrorMessageToClient)
 
 		# CAMERA
@@ -1317,10 +1317,24 @@ class PrintJobHistoryPlugin(
 
 
 	def on_settings_save(self, data):
+		before_save_external_db_options = self._settings.get(['externalDatabase'])
+
 		# default save function
 		octoprint.plugin.SettingsPlugin.on_settings_save(self, data)
 
 		# reinitialize some fields
+		after_save_external_db_options = self._settings.get(['externalDatabase'])
+
+		for option in before_save_external_db_options.keys():
+			if after_save_external_db_options.get("enabled") == True:
+				if before_save_external_db_options[option] != after_save_external_db_options[option]:
+					self.initialize()  # restart plugin with the new remote database options.
+					break
+
+		# switch from external database to internal SQLite3 database
+		if before_save_external_db_options.get("enabled") == True and after_save_external_db_options.get("enabled") == False:
+			self.initialize()  # restart plugin with internal SQLite3 database options.
+
 		sqlLoggingEnabled = self._settings.get_boolean([SettingsKeys.SETTINGS_KEY_SQL_LOGGING_ENABLED])
 		self._databaseManager.showSQLLogging(sqlLoggingEnabled)
 
@@ -1364,6 +1378,16 @@ class PrintJobHistoryPlugin(
 		settings[SettingsKeys.SETTINGS_KEY_CURRENCY_SYMBOL] = "€"
 		settings[SettingsKeys.SETTINGS_KEY_CURRENCY_FORMAT] = "%v %s"
 
+
+		## External Database
+		settings["externalDatabase"]=dict(
+			enabled=False,
+			database_name="",
+			username="",
+			password="",
+			host="",
+			port=""
+		)
 
 		## Camera
 		settings[SettingsKeys.SETTINGS_KEY_TAKE_SNAPSHOT_AFTER_PRINT] = True
@@ -1515,7 +1539,7 @@ class PrintJobHistoryPlugin(
 # ("OctoPrint-PluginSkeleton"), you may define that here. Same goes for the other metadata derived from setup.py that
 # can be overwritten via __plugin_xyz__ control properties. See the documentation for that.
 # Name is used in the left Settings-Menue
-__plugin_name__ = "PrintJobHistory"
+__plugin_name__ = "PrintJobHistory-ExternalDatabase"
 __plugin_pythoncompat__ = ">=2.7,<4"
 
 def __plugin_load__():

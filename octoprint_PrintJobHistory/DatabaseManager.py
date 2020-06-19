@@ -30,8 +30,7 @@ MODELS = [PluginMetaDataModel, PrintJobModel, FilamentModel, TemperatureModel, C
 
 class DatabaseManager(object):
 
-	def __init__(self, parentLogger, sqlLoggingEnabled):
-
+	def __init__(self, parentLogger, sqlLoggingEnabled, externalDatabase):
 		self.sqlLoggingEnabled = sqlLoggingEnabled
 		self._logger = logging.getLogger(parentLogger.name + "." + self.__class__.__name__)
 		self._sqlLogger = logging.getLogger(parentLogger.name + "." + self.__class__.__name__ + ".SQL")
@@ -39,6 +38,8 @@ class DatabaseManager(object):
 		self._database = None
 		self._databaseFileLocation = None
 		self._sendDataToClient = None
+
+		self.externalDatabase = externalDatabase
 
 	################################################################################################## private functions
 
@@ -49,8 +50,7 @@ class DatabaseManager(object):
 			pass
 		except Exception as e:
 			errorMessage = str(e)
-			if errorMessage.startswith("no such table"):
-
+			if errorMessage.startswith("no such table") or (self.externalDatabase.get('enabled') and errorMessage.__contains__("does not exist")):  # "no such table" didn't work for PostgreSQL when testing if tables exist in the database
 				self._logger.info("Create database-table, because didn't exists")
 				self._createDatabaseTables()
 			else:
@@ -491,7 +491,21 @@ class DatabaseManager(object):
 
 
 	def _createDatabase(self, forceCreateTables):
-		self._database = SqliteDatabase(self._databaseFileLocation)
+
+		if self.externalDatabase.get('enabled'):
+			self._database = PostgresqlDatabase(
+				self.externalDatabase.get('database_name'),
+				user=self.externalDatabase.get('username'),
+				password=self.externalDatabase.get('password'),
+				host=self.externalDatabase.get('host'),
+				port=self.externalDatabase.get('port'),
+				# NOTE 6.4.2020 1:55PM The next two lines are needed bc when a test query is done to see if the tables exist in the database, an error is thrown if they aren't and will crash when the next query is done. So PostgreSQL needs the auto rollback so the tables can be created after the test results in an error since there were no tables at first.
+				autocommit=True,
+				autorollback=True
+			)
+		else:
+			self._database = SqliteDatabase(self._databaseFileLocation)
+
 		DatabaseManager.db = self._database
 		self._database.bind(MODELS)
 
