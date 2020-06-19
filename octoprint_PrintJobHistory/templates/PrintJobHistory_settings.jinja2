@@ -5,6 +5,7 @@
     <div class="tabbable"> <!-- Only required for left/right tabs -->
         <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-pjh-General" data-toggle="tab">General</a></li>
+            <li><a href="#tab-pjh-Database" data-toggle="tab">External Database</a></li>
 <!--            <li><a href="#tab-pjh-Visibility" data-toggle="tab">Visibility</a></li>-->
 <!--            <li><a href="#tab-pjh-Filament" data-toggle="tab">Filament</a></li>-->
             <li><a href="#tab-pjh-Camera" data-toggle="tab">Camera</a></li>
@@ -62,7 +63,46 @@
 <!--            <div class="tab-pane" id="tab-pjh-Filament">-->
 <!--                TODO some filament-settings-->
 <!--            </div>-->
-
+            <!-- External Database - TAB -->
+        <div class="tab-pane" id="tab-pjh-Database">
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input type="checkbox" data-bind="checked: pluginSettings.externalDatabase.enabled" > Use external database (PostgreSQL only for now) instead of local SQLite3
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Database Name</label>
+                <div class="controls">
+                    <input type="text" data-bind="value: pluginSettings.externalDatabase.database_name"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Host</label>
+                <div class="controls">
+                    <input type="text" data-bind="value: pluginSettings.externalDatabase.host"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">User</label>
+                <div class="controls">
+                    <input type="text" data-bind="value: pluginSettings.externalDatabase.username"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Password</label>
+                <div class="controls">
+                    <input type="text" data-bind="value: pluginSettings.externalDatabase.password"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Port</label>
+                <div class="controls">
+                    <input type="text" data-bind="value: pluginSettings.externalDatabase.port"/>
+                </div>
+            </div>
+        </div>
             <!-- CAMERA - TAB -->
             <div class="tab-pane" id="tab-pjh-Camera">
                 <div class="control-group">
