@@ -108,7 +108,8 @@ class PrintStatusCSVFormattorParser:
 			# check if mandatory
 			return
 		SUCCESS = "success"
-		CANCEL = "cancel"
+		# Throws an error when importing bc it looks for "cancel" instead of "canceled"
+		CANCEL = "canceled"
 		FAILED = "failed"
 		if (SUCCESS == fieldValue or CANCEL == fieldValue or FAILED == fieldValue):
 			setattr(printJobModel, fieldName, fieldValue)
