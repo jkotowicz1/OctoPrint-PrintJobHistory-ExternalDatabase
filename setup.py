@@ -4,27 +4,27 @@
 ### Do not forget to adjust the following variables to your own plugin.
 
 # The plugin's identifier, has to be unique
-plugin_identifier = "PrintJobHistory"
+plugin_identifier = "PrintJobHistory-ExternalDatabase"
 
 # The plugin's python package, should be "octoprint_<plugin identifier>", has to be unique
-plugin_package = "octoprint_PrintJobHistory"
+plugin_package = "octoprint_PrintJobHistory-ExternalDatabase"
 
 # The plugin's human readable name. Can be overwritten within OctoPrint's internal data via __plugin_name__ in the
 # plugin module
-plugin_name = "Print Job History"
+plugin_name = "Print Job History-ExternalDatabase"
 
 # The plugin's version. Can be overwritten within OctoPrint's internal data via __plugin_version__ in the plugin module
 plugin_version = "1.17.0"
 
 # The plugin's description. Can be overwritten within OctoPrint's internal data via __plugin_description__ in the plugin
 # module
-plugin_description = """Collects all print jobs and stores the job data into a database with added feature to use an external PostgreSQL database"""
+plugin_description = """Adds the feature of using an external database with OllisGit's plugin that collects all print jobs and stores the job data into a database."""
 
 # The plugin's author. Can be overwritten within OctoPrint's internal data via __plugin_author__ in the plugin module
 plugin_author = "Rob4226"
 
 # The plugin's author's mail address.
-plugin_author_email = ""
+plugin_author_email = "Rob4226@yahoo.com"
 
 # The plugin's homepage URL. Can be overwritten within OctoPrint's internal data via __plugin_url__ in the plugin module
 plugin_url = "https://github.com/Rob4226/OctoPrint-PrintJobHistory-ExternalDatabase"
@@ -50,10 +50,10 @@ plugin_requires = [
 # files. This is sadly due to how python's setup.py works, see also http://stackoverflow.com/a/14159430/2028598
 plugin_additional_data = []
 
-# Any additional python models you need to install with your plugin that are not contained in <plugin_package>.*
+# Any additional python packages you need to install with your plugin that are not contained in <plugin_package>.*
 plugin_additional_packages = []
 
-# Any python models within <plugin_package>.* you do NOT want to install with your plugin
+# Any python packages within <plugin_package>.* you do NOT want to install with your plugin
 plugin_ignored_packages = []
 
 # Additional parameters for the call to setuptools.setup. If your plugin wants to register additional entry points,
