@@ -1437,8 +1437,8 @@ class PrintJobHistoryPlugin(
 	##~~ TemplatePlugin mixin
 	def get_template_configs(self):
 		return [
-			dict(type="tab", name="Print Job History"),
-			dict(type="settings", custom_bindings=True, name="Print Job History")
+			dict(type="tab", name="Print Job History-External Database"),
+			dict(type="settings", custom_bindings=True, name="Print Job History-External Database")
 		]
 
 

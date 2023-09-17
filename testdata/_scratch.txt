@@ -1,6 +1,6 @@
 
 
-# Print Job History Plugin
+# Print Job History-External Database Plugin
 User;Result;Start Date;End Date;Duration;File Name;File Path;File Size;Layers;Note;Temperatures;Spool Name;Material;Diameter;Used Length;Calculated Length;Used Weight;Used Filament Cost
 
 # Print History Plugin
