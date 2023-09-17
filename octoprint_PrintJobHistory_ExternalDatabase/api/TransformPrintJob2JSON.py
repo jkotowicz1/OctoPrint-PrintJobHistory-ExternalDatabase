@@ -2,9 +2,9 @@
 from __future__ import absolute_import
 
 
-from octoprint_PrintJobHistory.CameraManager import CameraManager
-from octoprint_PrintJobHistory.common import StringUtils
-from octoprint_PrintJobHistory.common import PrintJobUtils
+from octoprint_PrintJobHistory_ExternalDatabase.CameraManager import CameraManager
+from octoprint_PrintJobHistory_ExternalDatabase.common import StringUtils
+from octoprint_PrintJobHistory_ExternalDatabase.common import PrintJobUtils
 
 def transformPrintJobModel(job, fileManager, deleteDateTimeFromDict = True):
 	jobAsDict = job.__data__

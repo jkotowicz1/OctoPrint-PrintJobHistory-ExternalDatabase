@@ -1,9 +1,9 @@
 # coding=utf-8
 from __future__ import absolute_import
 
-# from octoprint_PrintJobHistory import PrintJobModel
-from octoprint_PrintJobHistory.models.FilamentModel import FilamentModel
-from octoprint_PrintJobHistory.models.PrintJobModel import PrintJobModel
+# from octoprint_PrintJobHistory_ExternalDatabase import PrintJobModel
+from octoprint_PrintJobHistory_ExternalDatabase.models.FilamentModel import FilamentModel
+from octoprint_PrintJobHistory_ExternalDatabase.models.PrintJobModel import PrintJobModel
 
 
 class PrintJobService(object):

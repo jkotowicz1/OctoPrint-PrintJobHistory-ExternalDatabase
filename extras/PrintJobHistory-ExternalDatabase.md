@@ -1,7 +1,7 @@
 ---
 layout: plugin
 
-id: PrintJobHistory-ExternalDatabase
+id: PrintJobHistory_ExternalDatabase
 title: Print Job History-ExternalDatabase
 description: Adds the feature of using an external database with OllisGit's plugin that collects all print jobs and stores the job data into a database.
 author: Rob
@@ -81,19 +81,19 @@ compatibility:
   - windows
   - macos
   - freebsd
-  
+
   # Compatible Python version
   #
   # Plugins should aim for compatibility for Python 2 and 3 for now, in which case the value should be ">=2.7,<4".
   #
-  # Plugins that only wish to support Python 3 should set it to ">=3,<4". 
+  # Plugins that only wish to support Python 3 should set it to ">=3,<4".
   #
   # If your plugin only supports Python 2 (worst case, not recommended for newly developed plugins since Python 2
   # is EOL), leave at ">=2.7,<3"
-  
+
   python: ">=2.7,<4"
 
 ---
 
 **TODO**: Longer description of your plugin, configuration examples etc. This part will be visible on the page at
-http://plugins.octoprint.org/plugin/PrintJobHistory-ExternalDatabase/
+http://plugins.octoprint.org/plugin/PrintJobHistory_ExternalDatabase/

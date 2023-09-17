@@ -490,7 +490,7 @@ $(function() {
         }
 
         self.deleteDatabaseAction = function() {
-            var result = confirm("Do you really want to delete all PrintJobHistory data?");
+            var result = confirm("Do you really want to delete all PrintJobHistory_ExternalDatabase data?");
             if (result == true){
                 self.apiClient.callDeleteDatabase(function(responseData) {
                     self.printJobHistoryTableHelper.reloadItems();

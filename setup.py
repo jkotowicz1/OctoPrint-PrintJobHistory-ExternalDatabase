@@ -4,10 +4,10 @@
 ### Do not forget to adjust the following variables to your own plugin.
 
 # The plugin's identifier, has to be unique
-plugin_identifier = "PrintJobHistory-ExternalDatabase"
+plugin_identifier = "PrintJobHistory_ExternalDatabase"
 
 # The plugin's python package, should be "octoprint_<plugin identifier>", has to be unique
-plugin_package = "octoprint_PrintJobHistory-ExternalDatabase"
+plugin_package = "octoprint_PrintJobHistory_ExternalDatabase"
 
 # The plugin's human readable name. Can be overwritten within OctoPrint's internal data via __plugin_name__ in the
 # plugin module

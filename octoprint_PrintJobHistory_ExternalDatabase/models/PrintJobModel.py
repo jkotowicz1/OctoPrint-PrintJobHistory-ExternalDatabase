@@ -1,9 +1,9 @@
 # coding=utf-8
 from __future__ import absolute_import
 
-from octoprint_PrintJobHistory.common import StringUtils
-from octoprint_PrintJobHistory.models.BaseModel import BaseModel
-# DO NOT IMPORT  from octoprint_PrintJobHistory.models.FilamentModel import FilamentModel
+from octoprint_PrintJobHistory_ExternalDatabase.common import StringUtils
+from octoprint_PrintJobHistory_ExternalDatabase.models.BaseModel import BaseModel
+# DO NOT IMPORT  from octoprint_PrintJobHistory_ExternalDatabase.models.FilamentModel import FilamentModel
 
 
 from peewee import CharField, Model, DecimalField, FloatField, DateField, DateTimeField, TextField, ForeignKeyField, \

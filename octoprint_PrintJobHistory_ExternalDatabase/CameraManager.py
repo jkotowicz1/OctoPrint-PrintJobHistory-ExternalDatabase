@@ -248,7 +248,7 @@ class CameraManager(object):
 		thumbnailLocation = self._pluginDataBaseFolder + "/../" + pluginFolder + "/" + thumbnailName
 
 		if os.path.isfile(thumbnailLocation):
-			# Convert png to jpg and save in printjobhistory storage
+			# Convert png to jpg and save in printjobhistory_externaldatabase  storage
 			if (storeImage):
 				self._logger.info("Try converting thumbnail '" + thumbnailLocation + "' to '" + snapshotFilename + "'")
 				im = Image.open(thumbnailLocation).convert("RGBA")

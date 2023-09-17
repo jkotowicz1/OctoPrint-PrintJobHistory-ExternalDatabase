@@ -1,9 +1,9 @@
 import unittest
 
-from octoprint_PrintJobHistory.common import StringUtils, DateTimeUtils
-from octoprint_PrintJobHistory.services.PrintJobService import PrintJobService
+from octoprint_PrintJobHistory_ExternalDatabase.common import StringUtils, DateTimeUtils
+from octoprint_PrintJobHistory_ExternalDatabase.services.PrintJobService import PrintJobService
 import logging
-from octoprint_PrintJobHistory import DatabaseManager, FilamentModel, TemperatureModel
+from octoprint_PrintJobHistory_ExternalDatabase import DatabaseManager, FilamentModel, TemperatureModel
 
 
 class PrintJobServiceTestCase(unittest.TestCase):

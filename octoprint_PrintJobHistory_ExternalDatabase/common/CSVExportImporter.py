@@ -5,11 +5,11 @@ import datetime
 import os
 import re
 
-from octoprint_PrintJobHistory.models.PrintJobModel import PrintJobModel
-from octoprint_PrintJobHistory.models.TemperatureModel import TemperatureModel
-from octoprint_PrintJobHistory.models.FilamentModel import FilamentModel
-from octoprint_PrintJobHistory.models.CostModel import CostModel
-from octoprint_PrintJobHistory.common import StringUtils
+from octoprint_PrintJobHistory_ExternalDatabase.models.PrintJobModel import PrintJobModel
+from octoprint_PrintJobHistory_ExternalDatabase.models.TemperatureModel import TemperatureModel
+from octoprint_PrintJobHistory_ExternalDatabase.models.FilamentModel import FilamentModel
+from octoprint_PrintJobHistory_ExternalDatabase.models.CostModel import CostModel
+from octoprint_PrintJobHistory_ExternalDatabase.common import StringUtils
 
 FORMAT_DATETIME = "%d.%m.%Y %H:%M"
 FORMAT_DATE = "%d.%m.%Y"

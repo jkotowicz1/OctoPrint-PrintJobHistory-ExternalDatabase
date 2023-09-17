@@ -7,15 +7,15 @@ import os
 import shutil
 import sqlite3
 
-from octoprint_PrintJobHistory.WrappedLoggingHandler import WrappedLoggingHandler
-from octoprint_PrintJobHistory.api import TransformPrintJob2JSON
-from octoprint_PrintJobHistory.common import StringUtils
-from octoprint_PrintJobHistory.models.CostModel import CostModel
-from octoprint_PrintJobHistory.models.FilamentModel import FilamentModel
-from octoprint_PrintJobHistory.models.PrintJobModel import PrintJobModel
-from octoprint_PrintJobHistory.models.PluginMetaDataModel import PluginMetaDataModel
-# from octoprint_PrintJobHistory.models.PrintJobSpoolMapModel import PrintJobSpoolMapModel
-from octoprint_PrintJobHistory.models.TemperatureModel import TemperatureModel
+from octoprint_PrintJobHistory_ExternalDatabase.WrappedLoggingHandler import WrappedLoggingHandler
+from octoprint_PrintJobHistory_ExternalDatabase.api import TransformPrintJob2JSON
+from octoprint_PrintJobHistory_ExternalDatabase.common import StringUtils
+from octoprint_PrintJobHistory_ExternalDatabase.models.CostModel import CostModel
+from octoprint_PrintJobHistory_ExternalDatabase.models.FilamentModel import FilamentModel
+from octoprint_PrintJobHistory_ExternalDatabase.models.PrintJobModel import PrintJobModel
+from octoprint_PrintJobHistory_ExternalDatabase.models.PluginMetaDataModel import PluginMetaDataModel
+# from octoprint_PrintJobHistory_ExternalDatabase.models.PrintJobSpoolMapModel import PrintJobSpoolMapModel
+from octoprint_PrintJobHistory_ExternalDatabase.models.TemperatureModel import TemperatureModel
 from peewee import *
 
 
@@ -484,9 +484,9 @@ class DatabaseManager(object):
 		backupDatabaseFilePath = os.path.join(backupFolder, backupDatabaseFileName)
 		if not os.path.exists(backupDatabaseFilePath):
 			shutil.copy(self._databaseFileLocation, backupDatabaseFilePath)
-			self._logger.info("Backup of printjobhistory database created '"+backupDatabaseFilePath+"'")
+			self._logger.info("Backup of printjobhistory_externaldatabase  database created '"+backupDatabaseFilePath+"'")
 		else:
-			self._logger.warning("Backup of printjobhistory database ('" + backupDatabaseFilePath + "') is already present. No backup created.")
+			self._logger.warning("Backup of printjobhistory_externaldatabase  database ('" + backupDatabaseFilePath + "') is already present. No backup created.")
 		return backupDatabaseFilePath
 
 

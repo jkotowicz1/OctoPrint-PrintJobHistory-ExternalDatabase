@@ -1,7 +1,7 @@
 # coding=utf-8
 from __future__ import absolute_import
 
-from octoprint_PrintJobHistory.services.SlicerSettingsService import SlicerSettingsService
+from octoprint_PrintJobHistory_ExternalDatabase.services.SlicerSettingsService import SlicerSettingsService
 
 
 def transformSlicerSettingsCompareResult(compareResult):

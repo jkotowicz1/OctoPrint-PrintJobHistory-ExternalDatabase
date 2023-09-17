@@ -1,7 +1,7 @@
 # coding=utf-8
 from __future__ import absolute_import
 from octoprint.filemanager import FileDestinations
-from octoprint_PrintJobHistory.common import StringUtils
+from octoprint_PrintJobHistory_ExternalDatabase.common import StringUtils
 
 def isPrintJobReprintable(fileManager, fileOrigin, filePathName, fileName):
 	resultPrintJobPrintable = {}

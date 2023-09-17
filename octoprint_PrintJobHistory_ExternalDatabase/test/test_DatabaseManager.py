@@ -3,15 +3,15 @@ import unittest
 
 import peewee
 
-from octoprint_PrintJobHistory import DatabaseManager, CostModel
-from octoprint_PrintJobHistory.api import TransformPrintJob2JSON, TransformSlicerSettings2JSON
-from octoprint_PrintJobHistory.common import StringUtils
-from octoprint_PrintJobHistory.common import CSVExportImporter
+from octoprint_PrintJobHistory_ExternalDatabase import DatabaseManager, CostModel
+from octoprint_PrintJobHistory_ExternalDatabase.api import TransformPrintJob2JSON, TransformSlicerSettings2JSON
+from octoprint_PrintJobHistory_ExternalDatabase.common import StringUtils
+from octoprint_PrintJobHistory_ExternalDatabase.common import CSVExportImporter
 import logging
 
-from octoprint_PrintJobHistory.models.PrintJobModel import PrintJobModel
-from octoprint_PrintJobHistory.models.FilamentModel import FilamentModel
-from octoprint_PrintJobHistory.services.SlicerSettingsService import SlicerSettingsService
+from octoprint_PrintJobHistory_ExternalDatabase.models.PrintJobModel import PrintJobModel
+from octoprint_PrintJobHistory_ExternalDatabase.models.FilamentModel import FilamentModel
+from octoprint_PrintJobHistory_ExternalDatabase.services.SlicerSettingsService import SlicerSettingsService
 
 
 class TestDatabase(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestDatabase(unittest.TestCase):
 	# TimeFrameSelection
 	def _test_queryJobs(self):
 
-		# http: // localhost:5000 / plugin / PrintJobHistory / loadPrintJobHistoryByQuery?from=0 & to = 25 & sortColumn = printStartDateTime & sortOrder = desc & filterName = all & startDate = & endDate =
+		# http: // localhost:5000 / plugin / PrintJobHistory_ExternalDatabase / loadPrintJobHistoryByQuery?from=0 & to = 25 & sortColumn = printStartDateTime & sortOrder = desc & filterName = all & startDate = & endDate =
 		tableQuery = {
 			"from": 0,
 			"to": 250,

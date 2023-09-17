@@ -2,8 +2,8 @@
 
 import logging
 
-from octoprint_PrintJobHistory.common import StringUtils
-from octoprint_PrintJobHistory.common.SlicerSettingsParser import SlicerSettingsParser
+from octoprint_PrintJobHistory_ExternalDatabase.common import StringUtils
+from octoprint_PrintJobHistory_ExternalDatabase.common.SlicerSettingsParser import SlicerSettingsParser
 
 
 def test_parseSettings():
