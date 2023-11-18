@@ -11,7 +11,7 @@ name: Build Plugin Release - Action
 on: [push]
 jobs:
   Build-Release-ZIP-Action:
-    runs-on: ubuntu-latesta
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
